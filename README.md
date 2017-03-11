@@ -1,5 +1,5 @@
 # DB-POOLR
-A simple configurator for Mysqljs
+A simple configurator for Mysqljs 2
 
 <br>
 

@@ -1,5 +1,5 @@
 // *Requiring the needed modules:
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const QueryService = require('./query-service.js');
 
 /**
@@ -51,12 +51,12 @@ function stop(){
  * @return {Promise}        The start promise, it resolves into a QueryService instance, or rejects with an error if the pool couldn't be set
  * @author Guilherme Reginaldo Ruella
  */
-function startDBPool({ connectionLimit=10, host='localhost', port='3306', user='root', password='', database, supportBigNumbers=false, timezone }){
+function startDBPool(settings){
    // *Returning the starting promise:
    return new Promise((resolve, reject) => {
 
       // *Starting the connection pool:
-      pool = mysql.createPool({ connectionLimit, host, port, user, password, database, supportBigNumbers, timezone });
+      pool = mysql.createPool(settings);
 
       // *When connections get queued:
       pool.on('enqueue', () => {

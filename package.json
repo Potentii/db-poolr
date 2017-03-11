@@ -1,17 +1,17 @@
 {
   "name": "db-poolr",
-  "version": "1.0.0",
-  "description": "A simple configurator for Mysqljs",
+  "version": "1.1.0",
+  "description": "A simple configurator for Mysqljs 2",
   "author": "Guilherme Reginaldo Ruella <potentii@gmail.com>",
   "license": "MIT",
   "keywords": [
     "database",
     "pool",
     "configurator",
-    "mysql"
+    "mysql2"
   ],
   "scripts": {
-    "test": "node test/test.js"
+    "test": "mocha test/test.js"
   },
   "main": "main.js",
   "repository": {
@@ -24,11 +24,10 @@
   "homepage": "https://github.com/Potentii/db-poolr#readme",
   "files": [
     "main.js",
-    "libs/",
-    "test/"
+    "libs/"
   ],
   "dependencies": {
-    "mysql": "^2.13.0"
+    "mysql2": "^1.2.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0",

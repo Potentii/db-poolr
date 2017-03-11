@@ -16,7 +16,7 @@ module.exports = class Configurator{
       // *Initializing the pool options:
       this._port = '3306';
       this._host = 'localhost';
-      this._cred = {user: 'root', pass: ''};
+      this._credentials = {user: undefined, pass: undefined};
       this._connection_limit = 10;
       this._support_big_numbers = false;
       this._timezone = undefined;
@@ -65,7 +65,7 @@ module.exports = class Configurator{
     */
    credentials(user, pass){
       // *Setting the credentials:
-      this._cred = { user, pass };
+      this._credentials = { user, pass };
       // *Returning this configurator:
       return this;
    }
@@ -140,8 +140,8 @@ module.exports = class Configurator{
       this._pool_start_promise = boot_pool.start({
             host: this._host,
             port: this._port,
-            user: this._cred.user,
-            password: this._cred.pass,
+            user: this._credentials.user,
+            password: this._credentials.pass,
             database: this._schema,
             connectionLimit: this._connection_limit,
             supportBigNumbers: this._support_big_numbers,

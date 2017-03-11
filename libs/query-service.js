@@ -30,7 +30,7 @@ module.exports = class QueryService{
             if(err) return reject(err);
 
             // *Querying the database:
-            conn.query(sql, values, (err, result, fields) => {
+            conn.query(sql, values, (err, results, fields) => {
                // *Recycling the connection:
                conn.release();
 
@@ -49,7 +49,7 @@ module.exports = class QueryService{
                }
 
                // *Resolving the promise:
-               resolve({rows: result, fields: fields});
+               resolve({ results, fields });
             });
 
          });
